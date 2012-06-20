@@ -13,8 +13,7 @@ Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/%{name}-%{version}.tar.xz
 
-BuildRequires:	libtool
-BuildRequires:	pkgconfig(cairo)
+BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gstreamer-0.10)
 BuildRequires:	pkgconfig(gstreamer-plugins-base-0.10)
