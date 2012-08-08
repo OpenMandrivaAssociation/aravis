@@ -11,7 +11,7 @@ Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/aravis/0.1/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/aravis/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
