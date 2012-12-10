@@ -100,3 +100,14 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_datadir}/gir-1.0/Aravis-%{api}.gir
 %{_datadir}/gtk-doc/html/%{name}-%{api}
 
+
+
+%changelog
+* Wed Aug 08 2012 Matthew Dawkins <mattydaw@mandriva.org> 0.1.15-1
++ Revision: 812766
+- update to new version 0.1.15
+
+* Wed Jun 20 2012 Matthew Dawkins <mattydaw@mandriva.org> 0.1.14-1
++ Revision: 806349
+- imported package aravis
+
