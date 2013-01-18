@@ -1,3 +1,6 @@
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
+%define gstapi	0.10
 %define api	0.2
 %define major	0
 %define libname %mklibname %{name} %{api} %{major}
@@ -6,17 +9,17 @@
 
 Summary:	Glib/gobject based library implementing a Genicam interface
 Name:		aravis
-Version:	0.1.15
+Version:	0.2.1
 Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
-URL:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/aravis/%{name}-%{version}.tar.xz
+Url:		http://www.gnome.org
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/aravis/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
-BuildRequires:	pkgconfig(gstreamer-0.10)
-BuildRequires:	pkgconfig(gstreamer-plugins-base-0.10)
+BuildRequires:	pkgconfig(gstreamer-%{gstapi})
+BuildRequires:	pkgconfig(gstreamer-plugins-base-%{gstapi})
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libnotify)
 
@@ -45,11 +48,12 @@ Group:		System/Libraries
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
 
-%package gstreamer
+%package -n gstreamer%{gstapi}-%{name}
 Summary:	Gstreamer support for %{name}
 Group:		Sound
+Obsoletes:	%{name}-gstreamer
 
-%description gstreamer
+%description -n gstreamer%{gstapi}-%{name}
 This package contains the gstreamer plugin for %{name}.
 
 %package -n %{devname}
@@ -63,6 +67,7 @@ This package contains the development files for %{name}
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %configure2_5x \
@@ -90,8 +95,8 @@ rm -fr %{buildroot}%{_prefix}/doc
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Aravis-%{api}.typelib
 
-%files gstreamer
-%{_libdir}/gstreamer-0.10/libgstaravis-%{api}.so
+%files -n gstreamer%{gstapi}-%{name}
+%{_libdir}/gstreamer-%{gstapi}/libgstaravis-%{api}.so
 
 %files -n %{devname}
 %{_includedir}/%{name}-%{api}
@@ -99,15 +104,4 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_libdir}/pkgconfig/*
 %{_datadir}/gir-1.0/Aravis-%{api}.gir
 %{_datadir}/gtk-doc/html/%{name}-%{api}
-
-
-
-%changelog
-* Wed Aug 08 2012 Matthew Dawkins <mattydaw@mandriva.org> 0.1.15-1
-+ Revision: 812766
-- update to new version 0.1.15
-
-* Wed Jun 20 2012 Matthew Dawkins <mattydaw@mandriva.org> 0.1.14-1
-+ Revision: 806349
-- imported package aravis
 
