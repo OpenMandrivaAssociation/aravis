@@ -1,7 +1,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define gstapi	0.10
-%define api	0.2
+%define gstapi	1.0
+%define api	0.4
 %define major	0
 %define libname %mklibname %{name} %{api} %{major}
 %define girname %mklibname %{name}-gir %{api}
@@ -9,8 +9,8 @@
 
 Summary:	Glib/gobject based library implementing a Genicam interface
 Name:		aravis
-Version:	0.2.1
-Release:	2
+Version:	0.3.7
+Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
 Url:		http://www.gnome.org
@@ -73,6 +73,7 @@ This package contains the development files for %{name}
 %configure2_5x \
 	--disable-static \
 	--enable-gst-plugin \
+	--disable-gst-0.10-plugin \
 	--enable-viewer \
 	--enable-notify
 
@@ -87,6 +88,9 @@ rm -fr %{buildroot}%{_prefix}/doc
 %files -f %{name}-%{api}.lang
 %{_bindir}/*
 %{_datadir}/%{name}-%{api}
+%{_iconsdir}/hicolor/*/apps/aravis.png
+%{_datadir}/applications/arv-viewer.desktop
+%{_datadir}/appdata/arv-viewer.appdata.xml
 
 %files -n %{libname}
 %doc AUTHORS COPYING NEWS
@@ -104,4 +108,3 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_libdir}/pkgconfig/*
 %{_datadir}/gir-1.0/Aravis-%{api}.gir
 %{_datadir}/gtk-doc/html/%{name}-%{api}
-
