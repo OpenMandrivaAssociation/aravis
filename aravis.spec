@@ -84,7 +84,7 @@ This package contains the development files for %{name}
 %makeinstall_std
 rm -fr %{buildroot}%{_prefix}/doc
 
-%find_lang %{name}-%{api}
+#find_lang %{name}-%{api}
 
 %files -f %{name}-%{api}.lang
 %{_bindir}/*
