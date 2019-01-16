@@ -97,7 +97,7 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_mandir}/man1/arv-viewer.1*
 
 %files -n %{libname}
-%doc AUTHORS COPYING NEWS
+%{_datadir}/doc/%{name}/%{name}*
 %{_libdir}/libaravis-%{api}.so.%{major}*
 
 %files -n %{girname}
