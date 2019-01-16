@@ -1,7 +1,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define gstapi	1.0
-%define api	0.4
+%define api	0.6
 %define major	0
 %define libname %mklibname %{name} %{api} %{major}
 %define girname %mklibname %{name}-gir %{api}
@@ -9,7 +9,7 @@
 
 Summary:	Glib/gobject based library implementing a Genicam interface
 Name:		aravis
-Version:	0.3.7
+Version:	0.6.1
 Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(gstreamer-%{gstapi})
 BuildRequires:	pkgconfig(gstreamer-plugins-base-%{gstapi})
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libnotify)
+BuildRequires:	pkgconfig(libxml-2.0)
 
 %description
 Aravis is a glib/gobject based library implementing a Genicam interface, 
@@ -89,18 +90,21 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_bindir}/*
 %{_datadir}/%{name}-%{api}
 %{_iconsdir}/hicolor/*/apps/aravis.png
+%{_iconsdir}/hicolor/scalable/devices/aravis*
 %{_datadir}/applications/arv-viewer.desktop
 %{_datadir}/appdata/arv-viewer.appdata.xml
+%{_mandir}/man1/arv-tool-%{api}.1*
+%{_mandir}/man1/arv-viewer.1*
 
 %files -n %{libname}
-%doc AUTHORS COPYING NEWS
+%{_datadir}/doc/%{name}/%{name}*
 %{_libdir}/libaravis-%{api}.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Aravis-%{api}.typelib
 
 %files -n gstreamer%{gstapi}-%{name}
-%{_libdir}/gstreamer-%{gstapi}/libgstaravis-%{api}.so
+%{_libdir}/gstreamer-%{gstapi}/libgstaravis.%{api}.so
 
 %files -n %{devname}
 %{_includedir}/%{name}-%{api}
