@@ -84,14 +84,17 @@ This package contains the development files for %{name}
 %makeinstall_std
 rm -fr %{buildroot}%{_prefix}/doc
 
-#find_lang %{name}-%{api}
+%find_lang %{name}-%{api}
 
-%files
+%files -f %{name}-%{api}.lang
 %{_bindir}/*
 %{_datadir}/%{name}-%{api}
 %{_iconsdir}/hicolor/*/apps/aravis.png
+%{_iconsdir}/hicolor/scalable/devices/aravis*
 %{_datadir}/applications/arv-viewer.desktop
 %{_datadir}/appdata/arv-viewer.appdata.xml
+%{_mandir}/man1/arv-tool-%{api}.1*
+%{_mandir}/man1/arv-viewer.1*
 
 %files -n %{libname}
 %doc AUTHORS COPYING NEWS
@@ -101,7 +104,7 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_libdir}/girepository-1.0/Aravis-%{api}.typelib
 
 %files -n gstreamer%{gstapi}-%{name}
-#{_libdir}/gstreamer-%{gstapi}/libgstaravis-%{api}.so
+%{_libdir}/gstreamer-%{gstapi}/libgstaravis.%{api}.so
 
 %files -n %{devname}
 %{_includedir}/%{name}-%{api}
