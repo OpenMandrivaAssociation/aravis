@@ -101,7 +101,7 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_libdir}/girepository-1.0/Aravis-%{api}.typelib
 
 %files -n gstreamer%{gstapi}-%{name}
-%{_libdir}/gstreamer-%{gstapi}/libgstaravis-%{api}.so
+#{_libdir}/gstreamer-%{gstapi}/libgstaravis-%{api}.so
 
 %files -n %{devname}
 %{_includedir}/%{name}-%{api}
