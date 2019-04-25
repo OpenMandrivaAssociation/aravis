@@ -9,7 +9,7 @@
 
 Summary:	Glib/gobject based library implementing a Genicam interface
 Name:		aravis
-Version:	0.6.1
+Version:	0.6.2
 Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
