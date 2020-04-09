@@ -9,13 +9,14 @@
 
 Summary:	Glib/gobject based library implementing a Genicam interface
 Name:		aravis
-Version:	0.7.0
+Version:	0.7.4
 Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
 Url:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/aravis/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:  meson
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gstreamer-%{gstapi})
@@ -71,17 +72,13 @@ This package contains the development files for %{name}
 %apply_patches
 
 %build
-%configure2_5x \
-	--disable-static \
-	--enable-gst-plugin \
-	--disable-gst-0.10-plugin \
-	--enable-viewer \
-	--enable-notify
+%meson
 
-%make_build LIBS='-lm -lz'
+%meson_build
 
 %install
-%make_install
+%meson_install
+
 rm -fr %{buildroot}%{_prefix}/doc
 
 %find_lang %{name}-%{api}
