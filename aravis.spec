@@ -26,6 +26,7 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(libusb-1.0)
+BuildRequires:  pkgconfig(gtk-doc)
 
 %description
 Aravis is a glib/gobject based library implementing a Genicam interface, 
