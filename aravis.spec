@@ -1,7 +1,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define gstapi	1.0
-%define api	0.6
+%define api	0.8
 %define major	0
 %define libname %mklibname %{name} %{api} %{major}
 %define girname %mklibname %{name}-gir %{api}
@@ -9,13 +9,15 @@
 
 Summary:	Glib/gobject based library implementing a Genicam interface
 Name:		aravis
-Version:	0.6.4
+Version:	0.7.4
 Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
 Url:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/aravis/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:  cmake
+BuildRequires:  meson
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gstreamer-%{gstapi})
@@ -23,6 +25,8 @@ BuildRequires:	pkgconfig(gstreamer-plugins-base-%{gstapi})
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(libusb-1.0)
+BuildRequires:  pkgconfig(gtk-doc)
 
 %description
 Aravis is a glib/gobject based library implementing a Genicam interface, 
@@ -71,33 +75,28 @@ This package contains the development files for %{name}
 %autopatch -p1
 
 %build
-%configure2_5x \
-	--disable-static \
-	--enable-gst-plugin \
-	--disable-gst-0.10-plugin \
-	--enable-viewer \
-	--enable-notify
+%meson
 
-%make_build LIBS='-lm -lz'
+%meson_build
 
 %install
-%make_install
+%meson_install
+
 rm -fr %{buildroot}%{_prefix}/doc
 
-%find_lang %{name}-%{api}
 
-%files -f %{name}-%{api}.lang
+%files
 %{_bindir}/*
 %{_datadir}/%{name}-%{api}
-%{_iconsdir}/hicolor/*/apps/aravis.png
-%{_iconsdir}/hicolor/scalable/devices/aravis*
-%{_datadir}/applications/arv-viewer.desktop
-%{_datadir}/appdata/arv-viewer.appdata.xml
-%{_mandir}/man1/arv-tool-%{api}.1*
-%{_mandir}/man1/arv-viewer.1*
+%{_iconsdir}/hicolor/*x*/apps/aravis-%{api}.*
+%{_datadir}/applications/arv-viewer-%{api}.desktop
+%{_datadir}/metainfo/arv-viewer-%{api}.appdata.xml
+%{_mandir}/man1/arv-viewer*
+%{_mandir}/man1/arv-tool*
+%{_datadir}/locale/*/LC_MESSAGES/aravis-%{api}.mo
 
 %files -n %{libname}
-%{_datadir}/doc/%{name}/%{name}*
+#{_datadir}/doc/%{name}/%{name}*
 %{_libdir}/libaravis-%{api}.so.%{major}*
 
 %files -n %{girname}
