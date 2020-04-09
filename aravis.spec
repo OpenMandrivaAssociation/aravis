@@ -87,17 +87,17 @@ rm -fr %{buildroot}%{_prefix}/doc
 
 %files
 %{_bindir}/*
-#{_datadir}/%{name}-%{api}
-#{_iconsdir}/hicolor/*/apps/aravis.png
-#{_iconsdir}/hicolor/scalable/devices/aravis*
-#{_datadir}/applications/arv-viewer.desktop
-#{_datadir}/appdata/arv-viewer.appdata.xml
-#{_mandir}/man1/arv-tool-%{api}.1*
-#{_mandir}/man1/arv-viewer.1*
+%{_datadir}/%{name}-%{api}
+%{_iconsdir}/hicolor/*/apps/aravis.png
+%{_iconsdir}/hicolor/scalable/devices/aravis*
+%{_datadir}/applications/arv-viewer.desktop
+%{_datadir}/appdata/arv-viewer.appdata.xml
+%{_mandir}/man1/arv-tool-%{api}.1*
+%{_mandir}/man1/arv-viewer.1*
 
 %files -n %{libname}
-#{_datadir}/doc/%{name}/%{name}*
-#{_libdir}/libaravis-%{api}.so.%{major}*
+%{_datadir}/doc/%{name}/%{name}*
+%{_libdir}/libaravis-%{api}.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Aravis-%{api}.typelib
