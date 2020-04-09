@@ -92,6 +92,7 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_datadir}/applications/arv-viewer-%{api}.desktop
 %{_datadir}/metainfo/arv-viewer-%{api}.appdata.xml
 %{_mandir}/man1/arv-viewer*
+%{_mandir}/man1/arv-tool*
 %{_datadir}/locale/*/LC_MESSAGES/aravis-%{api}.mo
 
 %files -n %{libname}
