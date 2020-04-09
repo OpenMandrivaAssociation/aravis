@@ -84,9 +84,8 @@ This package contains the development files for %{name}
 
 rm -fr %{buildroot}%{_prefix}/doc
 
-%find_lang %{name}-%{api}
 
-%files -f %{name}-%{api}.lang
+%files
 %{_bindir}/*
 %{_datadir}/%{name}-%{api}
 %{_iconsdir}/hicolor/*/apps/aravis.png
