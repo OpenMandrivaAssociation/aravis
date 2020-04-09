@@ -88,12 +88,11 @@ rm -fr %{buildroot}%{_prefix}/doc
 %files
 %{_bindir}/*
 %{_datadir}/%{name}-%{api}
-#{_iconsdir}/hicolor/*/apps/aravis.png
-#{_iconsdir}/hicolor/scalable/devices/aravis*
-#{_datadir}/applications/arv-viewer.desktop
-#{_datadir}/appdata/arv-viewer.appdata.xml
-%{_mandir}/man1/arv-tool-%{api}.1*
-#{_mandir}/man1/arv-viewer.1*
+%{_iconsdir}/hicolor/*x*/apps/aravis-%{api}.*
+%{_datadir}/applications/arv-viewer-%{api}.desktop
+%{_datadir}/metainfo/arv-viewer-%{api}.appdata.xml
+%{_mandir}/man1/arv-viewer*
+%{_datadir}/locale/*/LC_MESSAGES/aravis-%{api}.mo
 
 %files -n %{libname}
 #{_datadir}/doc/%{name}/%{name}*
