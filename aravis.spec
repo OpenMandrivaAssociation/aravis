@@ -87,7 +87,7 @@ rm -fr %{buildroot}%{_prefix}/doc
 
 %files
 %{_bindir}/*
-%{_datadir}/%{name}-%{api}
+#{_datadir}/%{name}-%{api}
 %{_iconsdir}/hicolor/*x*/apps/aravis-%{api}.*
 %{_datadir}/applications/arv-viewer-%{api}.desktop
 %{_datadir}/metainfo/arv-viewer-%{api}.appdata.xml
