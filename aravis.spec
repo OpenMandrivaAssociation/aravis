@@ -9,12 +9,12 @@
 
 Summary:	Glib/gobject based library implementing a Genicam interface
 Name:		aravis
-Version:	0.8.10
-Release:	2
+Version:	0.8.20
+Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
 Url:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/aravis/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	https://github.com/AravisProject/aravis/releases/download/%{version}/aravis-%{version}.tar.xz
 
 BuildRequires:  cmake
 BuildRequires:  meson
