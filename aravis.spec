@@ -9,7 +9,7 @@
 
 Summary:	Glib/gobject based library implementing a Genicam interface
 Name:		aravis
-Version:	0.8.20
+Version:	0.8.21
 Release:	1
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
@@ -27,6 +27,7 @@ BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(libusb-1.0)
 BuildRequires:  pkgconfig(gtk-doc)
+BuildRequires:  pkgconfig(gi-docgen)
 
 %description
 Aravis is a glib/gobject based library implementing a Genicam interface, 
