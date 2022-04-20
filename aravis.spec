@@ -97,7 +97,6 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_datadir}/locale/*/LC_MESSAGES/aravis-%{api}.mo
 
 %files -n %{libname}
-#{_datadir}/doc/%{name}/%{name}*
 %{_libdir}/libaravis-%{api}.so.%{major}*
 
 %files -n %{girname}
@@ -111,4 +110,3 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 %{_datadir}/gir-1.0/Aravis-%{api}.gir
-%{_datadir}/gtk-doc/html/%{name}-%{api}
