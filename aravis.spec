@@ -106,7 +106,7 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_libdir}/gstreamer-%{gstapi}/libgstaravis.%{api}.so
 
 %files -n %{devname}
-%doc %{_datadir}/doc/aravis-%{api}/
+#doc %{_datadir}/doc/aravis-%{api}/
 %{_includedir}/%{name}-%{api}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
