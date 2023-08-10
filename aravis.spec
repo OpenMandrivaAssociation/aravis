@@ -88,12 +88,7 @@ rm -fr %{buildroot}%{_prefix}/doc
 
 %files
 %{_bindir}/*
-#{_datadir}/%{name}-%{api}
 %{_iconsdir}/hicolor/*x*/apps/aravis-%{api}.*
-%{_datadir}/applications/arv-viewer-%{api}.desktop
-%{_datadir}/metainfo/arv-viewer-%{api}.appdata.xml
-#{_mandir}/man1/arv-viewer*
-#{_mandir}/man1/arv-tool*
 %{_datadir}/locale/*/LC_MESSAGES/aravis-%{api}.mo
 
 %files -n %{libname}
@@ -106,7 +101,6 @@ rm -fr %{buildroot}%{_prefix}/doc
 %{_libdir}/gstreamer-%{gstapi}/libgstaravis.%{api}.so
 
 %files -n %{devname}
-#doc %{_datadir}/doc/aravis-%{api}/
 %{_includedir}/%{name}-%{api}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
