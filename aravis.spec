@@ -1,10 +1,12 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define gstapi	1.0
-%define api	0.8
+%define api	0.10
 %define major	0
-%define libname %mklibname %{name} %{api} %{major}
-%define girname %mklibname %{name}-gir %{api}
+%define libname %mklibname
+%define oldlibname %mklibname %{name} 0.10 0
+%define girname %mklibname %{name}-gir
+%define oldgirname %mklibname %{name}-gir 0.10
 %define devname %mklibname %{name} -d
 
 Summary:	Glib/gobject based library implementing a Genicam interface
@@ -38,6 +40,7 @@ camera protocol used for industrial cameras.
 %package -n %{libname}
 Summary:	Shared library for %{name}
 Group:		System/Libraries
+%rename %{oldlibname}
 
 %description -n %{libname}
 Aravis is a glib/gobject based library implementing a Genicam interface, 
@@ -50,6 +53,7 @@ This package contains the shared library for %{name}.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
+%rebane %{oldgirname}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
