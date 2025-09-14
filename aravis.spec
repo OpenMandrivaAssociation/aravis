@@ -53,7 +53,7 @@ This package contains the shared library for %{name}.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
-%rebane %{oldgirname}
+%rename %{oldgirname}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
