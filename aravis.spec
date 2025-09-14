@@ -92,9 +92,9 @@ rm -fr %{buildroot}%{_prefix}/doc
 
 %files
 %{_bindir}/*
-%{_iconsdir}/hicolor/*x*/apps/aravis-%{api}.*
+#{_iconsdir}/hicolor/*x*/apps/aravis-%{api}.*
 %{_datadir}/locale/*/LC_MESSAGES/aravis-%{api}.mo
-%{_datadir}/applications/org.aravis.viewer-0.8.desktop
+%{_datadir}/applications/org.aravis.viewer-%{api}.desktop
 %{_datadir}/metainfo/org.aravis.viewer-*.metainfo.xml
 
 %files -n %{libname}
